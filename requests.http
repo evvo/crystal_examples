@@ -1,0 +1,77 @@
+GET http://localhost:3000/api/user/by-name/Jane
+
+# Response
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 87
+
+{
+  "name": "Jane",
+  "products": [
+    {
+      "name": "Laptop",
+      "price": 100
+    },
+    {
+      "name": "Phone",
+      "price": 100
+    }
+  ]
+}
+
+###
+
+GET http://localhost:3000/api/user/by-product/Phone
+
+# Response
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 175
+
+[
+  {
+    "name": "Jane",
+    "products": [
+      {
+        "name": "Laptop",
+        "price": 100
+      },
+      {
+        "name": "Phone",
+        "price": 100
+      }
+    ]
+  },
+  {
+    "name": "Dave",
+    "products": [
+      {
+        "name": "Fish",
+        "price": 100
+      },
+      {
+        "name": "Phone",
+        "price": 100
+      }
+    ]
+  }
+]
+
+###
+
+POST http://localhost:3000/api/user/create
+content-type: application/json
+
+{
+  "name": "JaneZ",
+  "products": [
+    {
+      "name": "Laptop",
+      "price": 100
+    },
+    {
+      "name": "Phone",
+      "price": 100
+    }
+  ]
+}

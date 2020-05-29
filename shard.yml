@@ -1,0 +1,19 @@
+name: crystal_examples
+version: 0.1.0
+
+authors:
+  - Evtimiy Mihaylov <evo@vaupe.com>
+
+targets:
+  crystal_examples:
+    main: src/crystal_examples.cr
+
+crystal: 0.34.0
+
+dependencies:
+  jsonable:
+    github: evvo/jsonable
+  kemal:
+    github: kemalcr/kemal
+
+license: MIT
