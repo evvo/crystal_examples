@@ -5,6 +5,9 @@ module AnnotationModule
   annotation Ageable
   end
 
+  annotation ChangeParam
+  end
+
   def initialize
     self.get_agable_vars
   end
@@ -25,7 +28,16 @@ module AnnotationExample
 
     # Property without annotation
     @name = "Joe"
+
+    @[ChangeParam("wine", "Chardonnay")]
+    def get_different_wine
+      {% begin %}
+        @{{ @def.annotation(ChangeParam)[0].id }} = {{ @def.annotation(ChangeParam)[1] }}
+      {% end %}
+    end
   end
 
   user = User.new
+  user.get_different_wine
+  user.get_agable_vars
 end
