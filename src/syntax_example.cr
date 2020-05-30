@@ -30,9 +30,9 @@ end
 hello_something "Joe"
 
 class Product
-  @name : String
+  getter name : String
   @picture : String
-  @price : Int32 # 100 = 1.00
+  getter price : Int32 # 100 = 1.00
 
   def initialize(@price : Int32) # price is Int
     @name = "No Name"
@@ -67,6 +67,10 @@ pp product2
 product3 = Product.new "Shoes", "picture_url", 500
 pp product3
 
+# Object properties cannot be accessed from outside, without getters
+puts product3.name
+# puts product3.picture # Will fail, as there is no getter method for picture
+
 class AvailableProduct < Product
 end
 
@@ -96,5 +100,5 @@ class MultipleLambdas
   end
 end
 
-muliple_lambdas = MultipleLambdas.new [->hello_world, ->{ puts "I am anonymous" }, ->hello_world]
+muliple_lambdas = MultipleLambdas.new [->hello_world, ->{ puts "I am anonymous" }]
 muliple_lambdas.start_all_lambdas!
